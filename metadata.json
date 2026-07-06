@@ -1,0 +1,6 @@
+{
+  "name": "Galaxy FM Radio",
+  "description": "Production FM Radio application and Linux V4L2 Hardware SDK optimized for Samsung Galaxy Tab A9+ 5G (SM-X216B)",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
