@@ -21,6 +21,16 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
 
+    - name: Verify and Self-Heal Gradle Wrapper
+      run: |
+        echo "Verifying gradle-wrapper.jar integrity..."
+        if ! java -jar gradle/wrapper/gradle-wrapper.jar --version > /dev/null 2>&1; then
+          echo "Warning: gradle-wrapper.jar appears invalid or corrupt. Regenerating with system Gradle..."
+          rm -f gradle/wrapper/gradle-wrapper.jar
+          gradle wrapper --gradle-version 9.3.1
+        fi
+        java -jar gradle/wrapper/gradle-wrapper.jar --version
+
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
       with:
